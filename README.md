@@ -1,26 +1,30 @@
+# Demo App use SQLite
 
-# Demo CURD App
-@user: nqmgaming
+Link homework: https://classroom.google.com/c/NjE1MjQ2NzYyOTk1/p/NjE1NTcxNDMyNDc4/details
 
+### Application user interface
+****
+<table>
+  <tr>
+    <td>Welcome Screen</td>
+     <td>Category Screen</td>
+     <td>Product Screen</td>
+  </tr>
+  <tr>
+    <td><img src="https://i.imgur.com/CWah8IA.png" width=270></td>
+    <td><img src="https://i.imgur.com/AdXY8TE.png" width=270 ></td>
+    <td><img src="https://i.imgur.com/1A1Ogny.png" width=270 ></td>
+  </tr>
 
-## Ứng dụng làm việc với SQLite
-- Thêm, sửa, xóa
-
-## Clone project
+ </table>
+ 
+ ### To clone use
+****
 
 ```bash
   git clone https://github.com/nqmgaming/DemoSQLite.git
 ```
-    <div style="display: flex; justify-content: center;">
-  <div style="flex: 1; padding: 10px;">
-    <img src="https://i.imgur.com/CWah8IA.png" alt="App Screenshot" style="width: 30%;">
-  </div>
-  <div style="flex: 1; padding: 10px;">
-    <img src="https://i.imgur.com/AdXY8TE.png" alt="Category Screen" style="width: 30%;">
-  </div>
-  <div style="flex: 1; padding: 10px;">
-    <img src="https://i.imgur.com/1A1Ogny.png" alt="Product Screen" style="width: 30%;">
-  </div>
-</div>
+    
+Thank you...
 
 
