@@ -25,6 +25,6 @@ Link homework: https://classroom.google.com/c/NjE1MjQ2NzYyOTk1/p/NjE1NTcxNDMyNDc
   git clone https://github.com/nqmgaming/DemoSQLite.git
 ```
     
-Thank you...
+Update soon...
 
 
