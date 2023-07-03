@@ -17,6 +17,10 @@ Link homework: https://classroom.google.com/c/NjE1MjQ2NzYyOTk1/p/NjE1NTcxNDMyNDc
   </tr>
 
  </table>
+
+### To download app and test
+
+[Link](https://github.com/nqmgaming/DemoSQLite/releases)
  
  ### To clone use
 ****
