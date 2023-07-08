@@ -6,14 +6,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
-import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
-    Button btnCategory, btnProduct;
-    ImageButton btnGithub;
+    private Button btnCategory, btnProduct;
+    private ImageButton btnGithub;
 
     private Handler handler;
     private Runnable runnable;
@@ -26,7 +25,6 @@ public class MainActivity extends AppCompatActivity {
 
         btnCategory = findViewById(R.id.btnCategory);
         btnProduct = findViewById(R.id.btnProduct);
-
         btnGithub = findViewById(R.id.btnGithub);
 
         handler = new Handler();
@@ -60,7 +58,6 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
     }
 
     @Override
@@ -81,5 +78,4 @@ public class MainActivity extends AppCompatActivity {
         super.onDestroy();
         handler.removeCallbacks(runnable);
     }
-
 }
