@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.Toast;
@@ -29,6 +30,7 @@ public class ProductActivity extends AppCompatActivity {
     EditText editProductID, editProductName, editProductPrice;
     Spinner spinnerProductCategory;
     Button btnAddProduct;
+    ImageButton btnBack;
     ArrayList<ProductDTO> listProductDTO;
     ProductDAO productDAO;
     ProductAdapter adapter;
@@ -49,6 +51,8 @@ public class ProductActivity extends AppCompatActivity {
         spinnerProductCategory = findViewById(R.id.spinnerCategory);
 
         btnAddProduct = findViewById(R.id.btnAddProduct);
+
+        btnBack = findViewById(R.id.backProduct);
 
         // Khởi tạo ProductDAO
         productDAO = new ProductDAO(this);
@@ -124,8 +128,19 @@ public class ProductActivity extends AppCompatActivity {
                 }
             }
         });
+
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ProductActivity.this, MainActivity.class);
+                finish();
+                startActivity(intent);
+            }
+        });
+
+
         //Get intent from EditProductActivity
-        Intent intentFromEditActivity= getIntent();
+        Intent intentFromEditActivity = getIntent();
         //Get the value of the key "id" from the intent
         Boolean check = intentFromEditActivity.getBooleanExtra("success", false);
         if (check) {
@@ -141,18 +156,13 @@ public class ProductActivity extends AppCompatActivity {
     }
 
     private void refreshProductList() {
-        // Lấy danh sách sản phẩm từ cơ sở dữ liệu
         listProductDTO = productDAO.GetAllProduct();
 
-        // Kiểm tra xem danh sách danh mục có rỗng không
         if (listProductDTO.isEmpty()) {
             return;
         }
 
-        // Tạo ProductAdapter và gán danh sách sản phẩm
         adapter = new ProductAdapter(this, listProductDTO);
-
-        // Gán adapter cho ListView
         listProduct.setAdapter(adapter);
     }
 

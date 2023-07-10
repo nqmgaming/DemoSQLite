@@ -8,7 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Spinner;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.nqmgaming.demosqliteapp.Adapter.ItemCategoryAdapter;
@@ -23,7 +23,7 @@ public class EditProductActivity extends AppCompatActivity {
     EditText editProductID, editProductName, editProductPrice;
     AppCompatSpinner spinnerProductCategory;
     Button btnCanCel, btnSave;
-
+    ImageButton btnBack;
     ProductDAO productDAO;
     ItemCategoryAdapter itemCategoryAdapter;
 
@@ -40,6 +40,8 @@ public class EditProductActivity extends AppCompatActivity {
 
         btnCanCel = findViewById(R.id.btnCancelProduct);
         btnSave = findViewById(R.id.btnSubmitProduct);
+
+        btnBack = findViewById(R.id.backEditProduct);
 
         productDAO = new ProductDAO(this);
         ArrayList<CategoryDTO> categoryList = productDAO.getAllCategories();
@@ -74,26 +76,26 @@ public class EditProductActivity extends AppCompatActivity {
                     price = Double.parseDouble(editProductPrice.getText().toString());
                     category = ((CategoryDTO) spinnerProductCategory.getSelectedItem()).getId();
                 } catch (NumberFormatException e) {
-                    Toast.makeText(EditProductActivity.this, "Vui lòng nhập đúng định dạng giá", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(EditProductActivity.this, "Please enter the correct price format", Toast.LENGTH_SHORT).show();
                     return;
                 } catch (NullPointerException e) {
-                    Toast.makeText(EditProductActivity.this, "Vui lòng nhập đầy đủ thông tin", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(EditProductActivity.this, "Please enter complete information", Toast.LENGTH_SHORT).show();
                     return;
                 } catch (Exception e) {
-                    Toast.makeText(EditProductActivity.this, "Lỗi không xác định", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(EditProductActivity.this, "Undefined error", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
                 if (name.isEmpty()) {
-                    Toast.makeText(EditProductActivity.this, "Vui lòng nhập tên sản phẩm", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(EditProductActivity.this, "Please enter the product name", Toast.LENGTH_SHORT).show();
                     return;
                 }
-               if (price <= 0) {
-                    Toast.makeText(EditProductActivity.this, "Vui lòng nhập giá sản phẩm", Toast.LENGTH_SHORT).show();
+                if (price <= 0) {
+                    Toast.makeText(EditProductActivity.this, "Please enter the product price", Toast.LENGTH_SHORT).show();
                     return;
                 }
                 if (category == null) {
-                    Toast.makeText(EditProductActivity.this, "Vui lòng chọn danh mục sản phẩm", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(EditProductActivity.this, "Please select the product category", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
@@ -104,16 +106,23 @@ public class EditProductActivity extends AppCompatActivity {
                 productDTO.setCat_id(category);
                 int result = productDAO.UpdateProduct(productDTO);
                 if (result > 0) {
-                    Toast.makeText(EditProductActivity.this, "Sửa thành công", Toast.LENGTH_SHORT).show();
-                    // Trở về màn hình danh sách sản phẩm gửi dữ liệu check success để load lại danh sách
+                    Toast.makeText(EditProductActivity.this, "Edit successful", Toast.LENGTH_SHORT).show();
+                    // Return to the product list screen and send a success message to reload the list
                     Intent intent = new Intent(EditProductActivity.this, ProductActivity.class);
                     intent.putExtra("success", true);
                     startActivity(intent);
                     finish();
                 } else {
-                    Toast.makeText(EditProductActivity.this, "Sửa thất bại", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(EditProductActivity.this, "Edit failed", Toast.LENGTH_SHORT).show();
                 }
 
+            }
+        });
+
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
             }
         });
 
@@ -137,6 +146,4 @@ public class EditProductActivity extends AppCompatActivity {
         super.onBackPressed();
         finish();
     }
-
-
 }

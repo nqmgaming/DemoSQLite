@@ -142,26 +142,22 @@
 
         <Button
             android:id="@+id/buttonEditProduct"
-            android:layout_width="160dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginRight="30dp"
             app:backgroundTint="@null"
-            android:textSize="20dp"
             android:textStyle="bold"
             android:drawableLeft="@drawable/edit_product"
-            android:background="@drawable/background_button"
-            android:text="Edit" />
+            android:background="@drawable/background_button" />
 
         <Button
             android:id="@+id/buttonDeleteProduct"
-            android:layout_width="160dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:backgroundTint="@null"
-            android:textSize="20dp"
             android:textStyle="bold"
             android:drawableLeft="@drawable/delete_item_product"
-            android:background="@drawable/background_button"
-            android:text="Delete" />
+            android:background="@drawable/background_button" />
 
     </LinearLayout>
 

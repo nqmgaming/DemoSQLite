@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -22,6 +23,7 @@ public class CategoryActivity extends AppCompatActivity {
     ListView listCategory;
     EditText editCategoryId, editCategoryName;
     Button btnAddCategory, btnEditCategory, btnDeleteCategory;
+    ImageButton btnBackCategory;
     CategoryDAO categoryDAO;
     ArrayList<CategoryDTO> listCategoryDTO;
     CategoryAdapter adapter;
@@ -40,6 +42,8 @@ public class CategoryActivity extends AppCompatActivity {
         btnAddCategory = findViewById(R.id.btnAddCategory);
         btnEditCategory = findViewById(R.id.btnEditCategory);
         btnDeleteCategory = findViewById(R.id.btnDeleteCategory);
+
+        btnBackCategory = findViewById(R.id.backCategory);
 
         //Create a new instance of the CategoryDAO class
         categoryDAO = new CategoryDAO(CategoryActivity.this);
@@ -149,6 +153,13 @@ public class CategoryActivity extends AppCompatActivity {
                     e.printStackTrace();
                     Toast.makeText(CategoryActivity.this, "An error occurred while deleting category", Toast.LENGTH_SHORT).show();
                 }
+            }
+        });
+
+        btnBackCategory.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
             }
         });
 
