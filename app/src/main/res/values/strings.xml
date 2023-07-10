@@ -22,4 +22,7 @@
     <string name="test_name">Name: Product 1</string>
     <string name="test_price">Price: 1000</string>
     <string name="category_test">Category: 1</string>
+    <string name="change_language">Change Language</string>
+    <string name="en">EN</string>
+    <string name="vi">VI</string>
 </resources>

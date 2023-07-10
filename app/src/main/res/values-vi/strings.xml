@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">DemoSQLiteApp</string>
+    <string name="welcome">Hôm nay bạn thế nào?</string>
+    <string name="desc">Đây là ứng dụng DemoSQLite</string>
+    <string name="category">Phân loại</string>
+    <string name="product">Sản phẩm</string>
+    <string name="todo">Cần làm</string>
+    <string name="category_id">Mã phân loại</string>
+    <string name="category_name">Tên phân loại</string>
+    <string name="add">Thêm</string>
+    <string name="delete">Xóa</string>
+    <string name="edit">Sửa</string>
+    <string name="edit_product">Chỉnh sửa sản phẩm</string>
+    <string name="product_id">Mã Sản phẩm</string>
+    <string name="product_name">Tên sản phẩm</string>
+    <string name="price_product">Giá sản phẩm</string>
+    <string name="cancel">Hủy</string>
+    <string name="save">Lưu</string>
+</resources>
