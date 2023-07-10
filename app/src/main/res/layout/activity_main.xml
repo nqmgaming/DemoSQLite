@@ -16,13 +16,14 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="50dp"/>
+        android:layout_marginTop="50dp"
+        android:contentDescription="@string/todo" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         style="@style/TextAppearance.MaterialComponents.Headline1"
-        android:text="Welcome to my application"
+        android:text="@string/welcome"
         android:textSize="24sp"
         android:textStyle="bold"
         android:id="@+id/txtWelcome"
@@ -35,7 +36,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         style="@style/MaterialAlertDialog.MaterialComponents.Title.Text.CenterStacked"
-        android:text="This app is Demo SQLite"
+        android:text="@string/desc"
         android:textSize="24sp"
         android:textStyle="bold"
         android:id="@+id/txtApp"
@@ -47,10 +48,10 @@
     <Button
         android:textSize="25sp"
         android:textStyle="bold"
-        android:drawableRight="@drawable/category"
+        android:drawableEnd="@drawable/category"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:text="Category"
+        android:text="@string/category"
         android:id="@+id/btnCategory"
         app:backgroundTint="@null"
         android:background="@drawable/background_button"
@@ -62,10 +63,10 @@
     <Button
         android:textSize="25sp"
         android:textStyle="bold"
-        android:drawableRight="@drawable/product"
+        android:drawableEnd="@drawable/product"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:text="Product"
+        android:text="@string/product"
         android:id="@+id/btnProduct"
         app:backgroundTint="@null"
         android:background="@drawable/background_button"
@@ -79,11 +80,12 @@
         android:layout_height="wrap_content"
         android:src="@drawable/github"
         android:id="@+id/btnGithub"
-        android:background="#FFFFFF"
+        android:background="@null"
         app:layout_constraintTop_toBottomOf="@+id/btnProduct"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="30dp"/>
+        android:layout_marginTop="30dp"
+        android:contentDescription="@string/todo" />
 
 
 

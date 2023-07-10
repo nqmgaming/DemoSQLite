@@ -8,7 +8,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         tools:context=".ProductActivity">
 
         <ImageView
@@ -20,14 +20,15 @@
             android:textAlignment="center"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            android:contentDescription="@string/todo" />
 
         <TextView
             android:id="@+id/textProduct"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="20dp"
-            android:text="Product"
+            android:text="@string/product"
             android:textAlignment="center"
             android:textSize="30sp"
             android:textStyle="bold"
@@ -42,7 +43,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="20dp"
             android:layout_marginEnd="16dp"
-            android:hint="Product ID"
+            android:hint="@string/product_id"
             app:layout_constraintTop_toBottomOf="@id/textProduct"
             app:startIconDrawable="@drawable/id">
 
@@ -50,7 +51,9 @@
                 android:id="@+id/editTextIdProduct"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:enabled="false" />
+                android:enabled="false"
+                android:importantForAutofill="no"
+                android:inputType="text|number" />
         </com.google.android.material.textfield.TextInputLayout>
 
 
@@ -61,14 +64,16 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="20dp"
             android:layout_marginEnd="16dp"
-            android:hint="Product Name"
+            android:hint="@string/product_name"
             app:layout_constraintTop_toBottomOf="@id/textInputId"
             app:startIconDrawable="@drawable/cat">
 
             <EditText
                 android:id="@+id/editTextNameProduct"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                android:layout_height="match_parent"
+                android:importantForAutofill="no"
+                android:inputType="text" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -78,14 +83,16 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="20dp"
             android:layout_marginEnd="16dp"
-            android:hint="Price Product"
+            android:hint="@string/price_product"
             app:layout_constraintTop_toBottomOf="@id/textInputName"
             app:startIconDrawable="@drawable/price">
 
             <EditText
                 android:id="@+id/editTextPriceProduct"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                android:layout_height="match_parent"
+                android:importantForAutofill="no"
+                android:inputType="number" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <androidx.appcompat.widget.AppCompatSpinner
@@ -124,9 +131,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@drawable/background_button"
-                    android:drawableRight="@drawable/add_product"
-                    android:text="Add"
-                    android:textSize="20dp"
+                    android:drawableEnd="@drawable/add_product"
+                    android:text="@string/add"
+                    android:textSize="20sp"
                     app:backgroundTint="@null" />
             </LinearLayout>
 

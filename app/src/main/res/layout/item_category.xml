@@ -2,22 +2,23 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#E2DFBD"
     android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:background="#E2DFBD"
         android:orientation="horizontal">
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/item_category"/>
+            android:src="@drawable/item_category"
+            android:contentDescription="@string/todo" />
 
         <LinearLayout
-            android:layout_marginLeft="5dp"
+            android:layout_marginStart="5dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
@@ -25,16 +26,16 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="ID CateGory: 01"
-                android:textSize="25dp"
+                android:text="@string/id_category_01_test"
+                android:textSize="25sp"
                 android:textStyle="bold"
                 android:id="@+id/txtViewID"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="20dp"
-                android:text="Name Category: Nguyễn Quang Minh"
+                android:textSize="20sp"
+                android:text="@string/test_name_category"
                 android:id="@+id/txtViewName"/>
         </LinearLayout>
 

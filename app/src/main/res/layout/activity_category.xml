@@ -8,7 +8,7 @@
     android:background="@drawable/background">
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     tools:context=".CategoryActivity">
 
     <ImageView
@@ -20,12 +20,13 @@
         android:id="@+id/imageCategory"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        android:contentDescription="@string/todo" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Category"
+        android:text="@string/category"
         android:textAlignment="center"
         android:textSize="30sp"
         android:textStyle="bold"
@@ -38,7 +39,7 @@
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Category ID"
+        android:hint="@string/category_id"
         android:id="@+id/textInputId"
         app:startIconDrawable="@drawable/id"
         android:layout_marginStart="16dp"
@@ -49,14 +50,16 @@
         <EditText
             android:id="@+id/editTextIdCategory"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:importantForAutofill="no"
+            android:inputType="text|number" />
     </com.google.android.material.textfield.TextInputLayout>
 
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Category Name"
+        android:hint="@string/category_name"
         app:startIconDrawable="@drawable/cat"
         android:layout_marginStart="16dp"
         android:layout_marginTop="20dp"
@@ -67,7 +70,9 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/editTextNameCategory"/>
+            android:id="@+id/editTextNameCategory"
+            android:importantForAutofill="no"
+            android:inputType="text" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <LinearLayout
@@ -91,10 +96,10 @@
                 android:id="@+id/btnAddCategory"
                 android:layout_width="140dp"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="20dp"
-                android:text="Add"
-                android:textSize="20dp"
-                android:drawableRight="@drawable/add_category"
+                android:layout_marginEnd="20dp"
+                android:text="@string/add"
+                android:textSize="20sp"
+                android:drawableEnd="@drawable/add_category"
                 android:background="@drawable/background_button"
                 app:backgroundTint = "@null"/>
         </LinearLayout>
@@ -109,21 +114,23 @@
               android:id="@+id/btnDeleteCategory"
               android:layout_width="140dp"
               android:layout_height="wrap_content"
-              android:layout_marginRight="20dp"
-              android:text="Delete"
-              android:textSize="20dp"
-              android:drawableRight="@drawable/delete_category"
+              android:layout_marginEnd="20dp"
+              android:text="@string/delete"
+              android:textSize="20sp"
+              android:drawableEnd="@drawable/delete_category"
               android:background="@drawable/background_button"
-              app:backgroundTint = "@null"/>
+              app:backgroundTint = "@null"
+              style="?android:attr/buttonGravity" />
           <Button
               android:id="@+id/btnEditCategory"
               android:layout_width="140dp"
               android:layout_height="wrap_content"
-              android:text="Edit"
-              android:textSize="20dp"
-              android:drawableRight="@drawable/edit_category"
+              android:text="@string/edit"
+              android:textSize="20sp"
+              android:drawableEnd="@drawable/edit_category"
               android:background="@drawable/background_button"
-              app:backgroundTint = "@null"/>
+              app:backgroundTint = "@null"
+              style="?android:attr/buttonGravity" />
       </LinearLayout>
 
     </LinearLayout>
@@ -153,7 +160,8 @@
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginTop="5dp"
         android:layout_marginStart="5dp"
-        android:id="@+id/backCategory"/>
+        android:id="@+id/backCategory"
+        android:contentDescription="@string/todo" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

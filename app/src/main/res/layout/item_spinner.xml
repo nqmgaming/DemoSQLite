@@ -10,12 +10,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/imgCategory"
-        android:src="@drawable/item_category"/>
+        android:src="@drawable/item_category"
+        android:contentDescription="@string/todo" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/nameCategory"
+        android:text="@string/test"
         android:gravity="center|start"
         android:textStyle="bold"
         android:textSize="20sp"

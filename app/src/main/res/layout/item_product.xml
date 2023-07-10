@@ -17,7 +17,8 @@
             android:layout_marginStart="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/item_product" />
+            android:src="@drawable/item_product"
+            android:contentDescription="@string/todo" />
         
         <LinearLayout
             android:layout_marginStart="10dp"
@@ -30,21 +31,17 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:orientation="horizontal">
-                
-                <ImageView
-                    android:layout_gravity="center"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/id_product"/>
 
                 <TextView
+                    android:drawablePadding="5dp"
                     android:id="@+id/textViewIdProduct"
                     android:layout_marginStart="5dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="ID: 1"
-                    android:textSize="20dp"
-                    android:textStyle="bold" />
+                    android:text="@string/test"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:drawableLeftCompat="@drawable/id_product" />
                 
             </LinearLayout>
 
@@ -52,20 +49,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
-                <ImageView
-                    android:layout_gravity="center"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/name_product"/>
 
                 <TextView
                     android:id="@+id/textViewNameProduct"
                     android:layout_marginStart="5dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Name: Product 1"
-                    android:textSize="20dp"
-                    android:textStyle="bold" />
+                    android:text="@string/test_name"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:drawableLeftCompat="@drawable/name_product" />
 
             </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -80,20 +73,15 @@
                     android:layout_weight="1"
                     android:orientation="horizontal">
 
-                    <ImageView
-                        android:layout_gravity="center"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/price_product"/>
-
                     <TextView
                         android:id="@+id/textViewPriceProduct"
                         android:layout_marginStart="5dp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Price: 1000"
-                        android:textSize="20dp"
-                        android:textStyle="bold" />
+                        android:text="@string/test_price"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        app:drawableLeftCompat="@drawable/price_product" />
 
                 </LinearLayout>
                 <LinearLayout
@@ -103,20 +91,15 @@
                     android:orientation="horizontal">
 
 
-                    <ImageView
-                        android:layout_gravity="center"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/category_product"/>
-
                     <TextView
                         android:id="@+id/textViewCategoryProduct"
                         android:layout_marginStart="5dp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Category: 1"
-                        android:textSize="20dp"
-                        android:textStyle="bold" />
+                        android:text="@string/category_test"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        app:drawableLeftCompat="@drawable/category_product" />
                 </LinearLayout>
             </LinearLayout>
             
@@ -144,7 +127,7 @@
             android:id="@+id/buttonEditProduct"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="30dp"
+            android:layout_marginEnd="30dp"
             app:backgroundTint="@null"
             android:textStyle="bold"
             android:drawableLeft="@drawable/edit_product"

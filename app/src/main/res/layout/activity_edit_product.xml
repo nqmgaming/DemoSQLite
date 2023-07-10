@@ -21,7 +21,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Edit Product"
+        android:text="@string/edit_product"
         android:textAlignment="center"
         android:textSize="30sp"
         android:textStyle="bold"
@@ -34,7 +34,7 @@
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Product ID"
+        android:hint="@string/product_id"
         android:id="@+id/textInputEditId"
         app:startIconDrawable="@drawable/id"
         android:layout_marginStart="16dp"
@@ -46,14 +46,16 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:id="@+id/editTextEditIdProduct"
-            android:enabled="false"/>
+            android:enabled="false"
+            android:importantForAutofill="no"
+            android:inputType="text|number" />
     </com.google.android.material.textfield.TextInputLayout>
 
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Product Name"
+        android:hint="@string/product_name"
         app:startIconDrawable="@drawable/cat"
         android:layout_marginStart="16dp"
         android:layout_marginTop="20dp"
@@ -70,7 +72,7 @@
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Price Name"
+        android:hint="@string/price_product"
         app:startIconDrawable="@drawable/price"
         android:layout_marginStart="16dp"
         android:layout_marginTop="20dp"
@@ -81,7 +83,9 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/editTextEditPriceProduct"/>
+            android:id="@+id/editTextEditPriceProduct"
+            android:importantForAutofill="no"
+            android:inputType="number" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <androidx.appcompat.widget.AppCompatSpinner
@@ -117,22 +121,24 @@
                 android:id="@+id/btnCancelProduct"
                 android:layout_width="160dp"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="20dp"
-                android:text="Cancel"
-                android:textSize="20dp"
-                android:drawableRight="@drawable/cancel_edit_product"
+                android:layout_marginEnd="20dp"
+                android:text="@string/cancel"
+                android:textSize="20sp"
+                android:drawableEnd="@drawable/cancel_edit_product"
                 android:background="@drawable/background_button"
-                app:backgroundTint = "@null"/>
+                app:backgroundTint = "@null"
+                style="?android:attr/button"/>
             <Button
                 android:id="@+id/btnSubmitProduct"
                 android:layout_width="160dp"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="20dp"
-                android:text="Save"
-                android:textSize="20dp"
-                android:drawableRight="@drawable/save_edit_item"
+                android:layout_marginEnd="20dp"
+                android:text="@string/save"
+                android:textSize="20sp"
+                android:drawableEnd="@drawable/save_edit_item"
                 android:background="@drawable/background_button"
-                app:backgroundTint = "@null"/>
+                app:backgroundTint = "@null"
+                style="?android:attr/button"/>
         </LinearLayout>
 
     </LinearLayout>
@@ -145,6 +151,7 @@
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginTop="5dp"
         android:layout_marginStart="5dp"
-        android:id="@+id/backEditProduct"/>
+        android:id="@+id/backEditProduct"
+        android:contentDescription="@string/todo" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
