@@ -28,7 +28,7 @@ Link homework: https://classroom.google.com/c/NjE1MjQ2NzYyOTk1/p/NjE1NTcxNDMyNDc
 ```bash
   git clone https://github.com/nqmgaming/DemoSQLite.git
 ```
-###Update log
+## Update log
 Update UI, add event for button, add function for app </br>
 Add Vietnamese language for app </br>
 Fix bug in app </br>
