@@ -76,26 +76,49 @@ public class EditProductActivity extends AppCompatActivity {
                     price = Double.parseDouble(editProductPrice.getText().toString());
                     category = ((CategoryDTO) spinnerProductCategory.getSelectedItem()).getId();
                 } catch (NumberFormatException e) {
-                    Toast.makeText(EditProductActivity.this, "Please enter the correct price format", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(
+                                    EditProductActivity.this,
+                                    "Please enter the correct price format",
+                                    Toast.LENGTH_SHORT)
+                            .show();
                     return;
                 } catch (NullPointerException e) {
-                    Toast.makeText(EditProductActivity.this, "Please enter complete information", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(
+                                    EditProductActivity.this,
+                                    "Please enter complete information",
+                                    Toast.LENGTH_SHORT).
+                            show();
                     return;
                 } catch (Exception e) {
-                    Toast.makeText(EditProductActivity.this, "Undefined error", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(
+                            EditProductActivity.this,
+                            "Undefined error",
+                            Toast.LENGTH_SHORT).show();
                     return;
                 }
 
                 if (name.isEmpty()) {
-                    Toast.makeText(EditProductActivity.this, "Please enter the product name", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(
+                                    EditProductActivity.this,
+                                    "Please enter the product name",
+                                    Toast.LENGTH_SHORT).
+                            show();
                     return;
                 }
                 if (price <= 0) {
-                    Toast.makeText(EditProductActivity.this, "Please enter the product price", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(
+                                    EditProductActivity.this,
+                                    "Please enter the product price",
+                                    Toast.LENGTH_SHORT)
+                            .show();
                     return;
                 }
                 if (category == null) {
-                    Toast.makeText(EditProductActivity.this, "Please select the product category", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(
+                                    EditProductActivity.this,
+                                    "Please select the product category",
+                                    Toast.LENGTH_SHORT)
+                            .show();
                     return;
                 }
 
@@ -106,14 +129,22 @@ public class EditProductActivity extends AppCompatActivity {
                 productDTO.setCat_id(category);
                 int result = productDAO.UpdateProduct(productDTO);
                 if (result > 0) {
-                    Toast.makeText(EditProductActivity.this, "Edit successful", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(
+                                    EditProductActivity.this,
+                                    "Edit successful", Toast.LENGTH_SHORT)
+                            .show();
                     // Return to the product list screen and send a success message to reload the list
-                    Intent intent = new Intent(EditProductActivity.this, ProductActivity.class);
+                    Intent intent = new Intent(
+                            EditProductActivity.this,
+                            ProductActivity.class);
                     intent.putExtra("success", true);
                     startActivity(intent);
                     finish();
                 } else {
-                    Toast.makeText(EditProductActivity.this, "Edit failed", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(
+                                    EditProductActivity.this,
+                                    "Edit failed", Toast.LENGTH_SHORT)
+                            .show();
                 }
 
             }

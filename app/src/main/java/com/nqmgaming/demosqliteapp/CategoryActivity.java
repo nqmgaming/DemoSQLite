@@ -80,13 +80,25 @@ public class CategoryActivity extends AppCompatActivity {
                             refreshCatList();
                             editCategoryId.setText("");
                             editCategoryName.setText("");
-                            Toast.makeText(CategoryActivity.this, "Add Category Successful", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(
+                                    CategoryActivity.this,
+                                    "Add Category Successful",
+                                    Toast.LENGTH_SHORT)
+                                    .show();
                         } else {
-                            Toast.makeText(CategoryActivity.this, "Add Category Failed", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(
+                                    CategoryActivity.this,
+                                    "Add Category Failed",
+                                    Toast.LENGTH_SHORT)
+                                    .show();
                         }
                     } catch (Exception e) {
                         e.printStackTrace();
-                        Toast.makeText(CategoryActivity.this, "An error occurred while adding category", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(
+                                CategoryActivity.this,
+                                "An error occurred while adding category",
+                                Toast.LENGTH_SHORT)
+                                .show();
                     }
                 } else {
                     editCategoryName.setError("Please enter a category name");
@@ -100,7 +112,11 @@ public class CategoryActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (selectedPosition == ListView.INVALID_POSITION) {
-                    Toast.makeText(CategoryActivity.this, "Please select a category to edit", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(
+                            CategoryActivity.this,
+                            "Please select a category to edit",
+                            Toast.LENGTH_SHORT)
+                            .show();
                     return;
                 }
 
@@ -119,13 +135,25 @@ public class CategoryActivity extends AppCompatActivity {
                         refreshCatList();
                         editCategoryId.setText("");
                         editCategoryName.setText("");
-                        Toast.makeText(CategoryActivity.this, "Update Category Successful", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(
+                                CategoryActivity.this,
+                                "Update Category Successful",
+                                Toast.LENGTH_SHORT)
+                                .show();
                     } else {
-                        Toast.makeText(CategoryActivity.this, "Update Category Failed", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(
+                                CategoryActivity.this,
+                                "Update Category Failed",
+                                Toast.LENGTH_SHORT)
+                                .show();
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
-                    Toast.makeText(CategoryActivity.this, "An error occurred while updating category", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(
+                            CategoryActivity.this,
+                            "An error occurred while updating category",
+                            Toast.LENGTH_SHORT)
+                            .show();
                 }
             }
         });
@@ -134,7 +162,11 @@ public class CategoryActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (selectedPosition == ListView.INVALID_POSITION) {
-                    Toast.makeText(CategoryActivity.this, "Please select a category to delete", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(
+                            CategoryActivity.this,
+                            "Please select a category to delete",
+                            Toast.LENGTH_SHORT)
+                            .show();
                     return;
                 }
 
@@ -145,13 +177,24 @@ public class CategoryActivity extends AppCompatActivity {
                         refreshCatList();
                         editCategoryId.setText("");
                         editCategoryName.setText("");
-                        Toast.makeText(CategoryActivity.this, "Delete Category Successful", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(
+                                CategoryActivity.this,
+                                "Delete Category Successful",
+                                Toast.LENGTH_SHORT)
+                                .show();
                     } else {
-                        Toast.makeText(CategoryActivity.this, "Delete Category Failed", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(
+                                CategoryActivity.this,
+                                "Delete Category Failed",
+                                Toast.LENGTH_SHORT).show();
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
-                    Toast.makeText(CategoryActivity.this, "An error occurred while deleting category", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(
+                            CategoryActivity.this,
+                            "An error occurred while deleting category",
+                            Toast.LENGTH_SHORT)
+                            .show();
                 }
             }
         });

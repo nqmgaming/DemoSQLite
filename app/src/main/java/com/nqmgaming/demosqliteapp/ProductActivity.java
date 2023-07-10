@@ -88,14 +88,25 @@ public class ProductActivity extends AppCompatActivity {
                     price = Double.parseDouble(priceText);
                     cat_id = ((CategoryDTO) spinnerProductCategory.getSelectedItem()).getId();
                 } catch (NumberFormatException e) {
-                    Toast.makeText(ProductActivity.this, "Invalid price format", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(
+                            ProductActivity.this,
+                            "Invalid price format",
+                            Toast.LENGTH_SHORT)
+                            .show();
                     return;
                 } catch (Exception e) {
-                    Toast.makeText(ProductActivity.this, "Error: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(
+                            ProductActivity.this,
+                            "Error: " + e.getMessage(),
+                            Toast.LENGTH_SHORT)
+                            .show();
                     return;
                 }
 
-                Toast.makeText(ProductActivity.this, "Category ID: " + cat_id, Toast.LENGTH_SHORT).show();
+                Toast.makeText(
+                        ProductActivity.this,
+                        "Category ID: " + cat_id,
+                        Toast.LENGTH_SHORT).show();
 
                 if (name.isEmpty()) {
                     editProductName.setError("Please enter product name");
@@ -104,7 +115,9 @@ public class ProductActivity extends AppCompatActivity {
                 }
 
                 if (cat_id == null) {
-                    Toast.makeText(ProductActivity.this, "Please select category", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ProductActivity.this,
+                            "Please select category",
+                            Toast.LENGTH_SHORT).show();
                     spinnerProductCategory.requestFocus();
                     return;
                 }
@@ -117,14 +130,17 @@ public class ProductActivity extends AppCompatActivity {
                 long result = productDAO.AddNewProduct(product);
 
                 if (result > 0) {
-                    Toast.makeText(ProductActivity.this, "Add product successfully", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(
+                            ProductActivity.this,
+                            "Add product successfully", Toast.LENGTH_SHORT).show();
                     editProductName.setText("");
                     editProductPrice.setText("");
                     editProductID.setText("");
                     spinnerProductCategory.setSelection(0);
                     refreshProductList();
                 } else {
-                    Toast.makeText(ProductActivity.this, "Add product failed", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ProductActivity.this,
+                            "Add product failed", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -176,7 +192,8 @@ public class ProductActivity extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 // Chuyển sang màn hình CategoryActivity để tạo danh mục
-                Intent intent = new Intent(ProductActivity.this, CategoryActivity.class);
+                Intent intent = new Intent(ProductActivity.this,
+                        CategoryActivity.class);
                 finish();
                 startActivity(intent);
             }

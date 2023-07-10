@@ -88,13 +88,16 @@ public class ProductAdapter extends BaseAdapter {
                     long result = productDAO.DeleteProduct(productDTO);
                     if (result > 0) {
                         refreshProductList(); // Cập nhật danh sách sản phẩm
-                        Toast.makeText(context, "Product deleted successfully", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(context, "Product deleted successfully",
+                                Toast.LENGTH_SHORT).show();
                     } else {
-                        Toast.makeText(context, "Product not deleted", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(context, "Product not deleted",
+                                Toast.LENGTH_SHORT).show();
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
-                    Toast.makeText(context, "Error deleting product: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context, "Error deleting product: " + e.getMessage(),
+                            Toast.LENGTH_SHORT).show();
                 }
             }
         });

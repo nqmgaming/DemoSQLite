@@ -52,7 +52,8 @@ public class ProductDAO {
             // Condition where id = ?
             String[] condition = new String[]{String.valueOf(ObjectPro.getId())};
             // Update table tbl_product
-            result = sqLiteDatabase.update("tbl_product", values, "id = ?", condition);
+            result = sqLiteDatabase.update("tbl_product", values, "id = ?",
+                    condition);
         } catch (Exception e) {
             e.printStackTrace();
         }

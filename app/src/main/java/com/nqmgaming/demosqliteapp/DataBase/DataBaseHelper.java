@@ -18,11 +18,15 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         // Create table category including id and name
-        String sql_create_table_category = "CREATE TABLE tbl_category (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT)";
+        String sql_create_table_category =
+                "CREATE TABLE tbl_category (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT)";
         db.execSQL(sql_create_table_category);
 
         // Create table product including id, name, price, category_id
-        String sql_create_table_product = "CREATE TABLE tbl_product (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, price REAL, category_id INTEGER, FOREIGN KEY(category_id) REFERENCES category(id))";
+        String sql_create_table_product =
+                "CREATE TABLE tbl_product (id INTEGER PRIMARY KEY AUTOINCREMENT," +
+                        " name TEXT, price REAL, category_id INTEGER, " +
+                        "FOREIGN KEY(category_id) REFERENCES category(id))";
         db.execSQL(sql_create_table_product);
 
     }
