@@ -11,19 +11,21 @@ import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.nqmgaming.demosqliteapp.Adapter.CategoryAdapter;
 import com.nqmgaming.demosqliteapp.DAO.CategoryDAO;
 import com.nqmgaming.demosqliteapp.DTO.CategoryDTO;
 
 import java.util.ArrayList;
 
+import io.github.cutelibs.cutedialog.CuteDialog;
+
 public class CategoryActivity extends AppCompatActivity {
 
     //Create variables
     ListView listCategory;
     EditText editCategoryId, editCategoryName;
-    Button btnAddCategory, btnEditCategory, btnDeleteCategory;
-    ImageButton btnBackCategory;
+    ImageButton btnEditCategory, btnDeleteCategory, btnAddCategory, btnBackCategory;
     CategoryDAO categoryDAO;
     ArrayList<CategoryDTO> listCategoryDTO;
     CategoryAdapter adapter;
@@ -80,24 +82,30 @@ public class CategoryActivity extends AppCompatActivity {
                             refreshCatList();
                             editCategoryId.setText("");
                             editCategoryName.setText("");
-                            Toast.makeText(
-                                    CategoryActivity.this,
-                                    "Add Category Successful",
-                                    Toast.LENGTH_SHORT)
+                            new CuteDialog.withAnimation(CategoryActivity.this)
+                                    .setTitle("Add Category Successful")
+                                    .setAnimation(R.raw.successfull)
+                                    .setPositiveButtonText("OK", new View.OnClickListener() {
+                                        @Override
+                                        public void onClick(View v) {
+
+                                        }
+                                    })
+                                    .hideNegativeButton(true)
                                     .show();
                         } else {
                             Toast.makeText(
-                                    CategoryActivity.this,
-                                    "Add Category Failed",
-                                    Toast.LENGTH_SHORT)
+                                            CategoryActivity.this,
+                                            "Add Category Failed",
+                                            Toast.LENGTH_SHORT)
                                     .show();
                         }
                     } catch (Exception e) {
                         e.printStackTrace();
                         Toast.makeText(
-                                CategoryActivity.this,
-                                "An error occurred while adding category",
-                                Toast.LENGTH_SHORT)
+                                        CategoryActivity.this,
+                                        "An error occurred while adding category",
+                                        Toast.LENGTH_SHORT)
                                 .show();
                     }
                 } else {
@@ -112,10 +120,18 @@ public class CategoryActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (selectedPosition == ListView.INVALID_POSITION) {
-                    Toast.makeText(
-                            CategoryActivity.this,
-                            "Please select a category to edit",
-                            Toast.LENGTH_SHORT)
+                    new CuteDialog.withAnimation(CategoryActivity.this)
+                            .setTitle("Please Select Category First")
+                            .setPadding(10)
+                            .hideCloseIcon(true)
+                            .setAnimation(R.raw.error)
+                            .setPositiveButtonText("OK", new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+
+                                }
+                            })
+                            .hideNegativeButton(true)
                             .show();
                     return;
                 }
@@ -135,67 +151,96 @@ public class CategoryActivity extends AppCompatActivity {
                         refreshCatList();
                         editCategoryId.setText("");
                         editCategoryName.setText("");
-                        Toast.makeText(
-                                CategoryActivity.this,
-                                "Update Category Successful",
-                                Toast.LENGTH_SHORT)
+                        new CuteDialog.withAnimation(CategoryActivity.this)
+                                .setTitle("Edit Category Successful")
+                                .setAnimation(R.raw.successfull)
+                                .setPositiveButtonText("OK", new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+
+                                    }
+                                })
+                                .hideNegativeButton(true)
                                 .show();
                     } else {
                         Toast.makeText(
-                                CategoryActivity.this,
-                                "Update Category Failed",
-                                Toast.LENGTH_SHORT)
+                                        CategoryActivity.this,
+                                        "Update Category Failed",
+                                        Toast.LENGTH_SHORT)
                                 .show();
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
                     Toast.makeText(
-                            CategoryActivity.this,
-                            "An error occurred while updating category",
-                            Toast.LENGTH_SHORT)
+                                    CategoryActivity.this,
+                                    "An error occurred while updating category",
+                                    Toast.LENGTH_SHORT)
                             .show();
                 }
+                selectedPosition = ListView.INVALID_POSITION;
             }
+
         });
 
         btnDeleteCategory.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (selectedPosition == ListView.INVALID_POSITION) {
-                    Toast.makeText(
-                            CategoryActivity.this,
-                            "Please select a category to delete",
-                            Toast.LENGTH_SHORT)
+                    new CuteDialog.withAnimation(CategoryActivity.this)
+                            .setTitle("Please Select Category First")
+                            .setPadding(10)
+                            .hideCloseIcon(true)
+                            .setAnimation(R.raw.error)
+                            .setPositiveButtonText("OK", new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+
+                                }
+                            })
+                            .hideNegativeButton(true)
                             .show();
                     return;
                 }
-
                 CategoryDTO categoryDTO = listCategoryDTO.get(selectedPosition);
-                try {
-                    long result = categoryDAO.DeleteCategory(categoryDTO);
-                    if (result > 0) {
-                        refreshCatList();
-                        editCategoryId.setText("");
-                        editCategoryName.setText("");
-                        Toast.makeText(
-                                CategoryActivity.this,
-                                "Delete Category Successful",
-                                Toast.LENGTH_SHORT)
-                                .show();
-                    } else {
-                        Toast.makeText(
-                                CategoryActivity.this,
-                                "Delete Category Failed",
-                                Toast.LENGTH_SHORT).show();
-                    }
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    Toast.makeText(
-                            CategoryActivity.this,
-                            "An error occurred while deleting category",
-                            Toast.LENGTH_SHORT)
-                            .show();
-                }
+                new CuteDialog.withAnimation(CategoryActivity.this)
+                        .setTitle("Delete Category Successful")
+                        .setAnimation(R.raw.successfull)
+                        .setPositiveButtonText("OK", new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+
+                                try {
+                                    long result = categoryDAO.DeleteCategory(categoryDTO);
+                                    if (result > 0) {
+                                        refreshCatList();
+                                        editCategoryId.setText("");
+                                        editCategoryName.setText("");
+
+                                    } else {
+                                        Toast.makeText(
+                                                CategoryActivity.this,
+                                                "Delete Category Failed",
+                                                Toast.LENGTH_SHORT).show();
+                                    }
+                                } catch (Exception e) {
+                                    e.printStackTrace();
+                                    Toast.makeText(
+                                                    CategoryActivity.this,
+                                                    "An error occurred while deleting category",
+                                                    Toast.LENGTH_SHORT)
+                                            .show();
+                                }
+                            }
+                        })
+                        .setNegativeButtonText("Cancel", new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+
+                            }
+                        })
+                        .show();
+
+                selectedPosition = -1;
             }
         });
 
@@ -213,6 +258,7 @@ public class CategoryActivity extends AppCompatActivity {
         listCategoryDTO.addAll(categoryDAO.GetAllCategory());
         adapter.notifyDataSetChanged();
     }
+
     @Override
     public void onBackPressed() {
         super.onBackPressed();

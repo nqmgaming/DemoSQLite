@@ -1,26 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:gravity="center"
-    android:orientation="horizontal">
+    android:layout_height="wrap_content">
 
-
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/imgCategory"
-        android:src="@drawable/item_category"
-        android:contentDescription="@string/todo" />
-
-    <TextView
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/nameCategory"
-        android:text="@string/test"
-        android:gravity="center|start"
-        android:textStyle="bold"
-        android:textSize="20sp"
-        android:layout_marginStart="20dp"/>
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal">
 
-</LinearLayout>
+
+        <ImageView
+            android:id="@+id/imgCategory"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:contentDescription="@string/todo"
+            android:src="@drawable/item_category" />
+
+        <TextView
+            android:id="@+id/nameCategory"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="20dp"
+            android:gravity="center|start"
+            android:text="@string/test"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

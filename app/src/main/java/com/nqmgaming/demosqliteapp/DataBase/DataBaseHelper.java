@@ -29,6 +29,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
                         "FOREIGN KEY(category_id) REFERENCES category(id))";
         db.execSQL(sql_create_table_product);
 
+
     }
 
     // Upgrade tables

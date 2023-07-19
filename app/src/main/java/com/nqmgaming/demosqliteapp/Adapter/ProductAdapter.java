@@ -12,6 +12,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.nqmgaming.demosqliteapp.AddProductActivity;
 import com.nqmgaming.demosqliteapp.DAO.ProductDAO;
 import com.nqmgaming.demosqliteapp.DTO.ProductDTO;
 import com.nqmgaming.demosqliteapp.EditProductActivity;
@@ -19,6 +20,8 @@ import com.nqmgaming.demosqliteapp.ProductActivity;
 import com.nqmgaming.demosqliteapp.R;
 
 import java.util.ArrayList;
+
+import io.github.cutelibs.cutedialog.CuteDialog;
 
 public class ProductAdapter extends BaseAdapter {
 
@@ -78,27 +81,54 @@ public class ProductAdapter extends BaseAdapter {
         txtProdCatId.setText("Category: " + String.valueOf(product.getCat_id()));
 
 
-
         btnDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 ProductDTO productDTO = productList.get(position);
                 productDAO = new ProductDAO(context);
-                try {
-                    long result = productDAO.DeleteProduct(productDTO);
-                    if (result > 0) {
-                        refreshProductList(); // Cập nhật danh sách sản phẩm
-                        Toast.makeText(context, "Product deleted successfully",
-                                Toast.LENGTH_SHORT).show();
-                    } else {
-                        Toast.makeText(context, "Product not deleted",
-                                Toast.LENGTH_SHORT).show();
-                    }
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    Toast.makeText(context, "Error deleting product: " + e.getMessage(),
-                            Toast.LENGTH_SHORT).show();
-                }
+                new CuteDialog.withAnimation(context)
+                        .setTitle("Delete Product?")
+                        .setAnimation(R.raw.delete)
+                        .setPositiveButtonText("OK", new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+
+                                try {
+                                    long result = productDAO.DeleteProduct(productDTO);
+
+                                    if (result > 0) {
+                                        new CuteDialog.withAnimation(context)
+                                                .setTitle("Delete product successfully")
+                                                .setPadding(10)
+                                                .hideCloseIcon(true)
+                                                .setAnimation(R.raw.successfull)
+                                                .setPositiveButtonText("OK", new View.OnClickListener() {
+                                                    @Override
+                                                    public void onClick(View v) {
+                                                        refreshProductList();
+                                                    }
+                                                })
+                                                .hideNegativeButton(true)
+                                                .show();
+
+                                    } else {
+                                        Toast.makeText(context, "Product not deleted",
+                                                Toast.LENGTH_SHORT).show();
+                                    }
+                                } catch (Exception e) {
+                                    e.printStackTrace();
+                                    Toast.makeText(context, "Error deleting product: " + e.getMessage(),
+                                            Toast.LENGTH_SHORT).show();
+                                }
+                            }
+                        })
+                        .setNegativeButtonText("Cancel", new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+
+                            }
+                        })
+                        .show();
             }
         });
 

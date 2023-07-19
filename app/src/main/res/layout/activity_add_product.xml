@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@drawable/background"
+    android:layout_height="wrap_content">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:context=".AddProductActivity">
+
+        <ImageView
+            android:id="@+id/imageProduct"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="20dp"
+            android:src="@drawable/product"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:contentDescription="@string/todo" />
+
+        <TextView
+            android:id="@+id/textProduct"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="20dp"
+            android:text="Add Product"
+            android:textAlignment="center"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/imageProduct" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputId"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="16dp"
+            android:hint="@string/product_id"
+            app:layout_constraintTop_toBottomOf="@id/textProduct"
+            app:startIconDrawable="@drawable/id">
+
+            <EditText
+                android:id="@+id/editTextIdProduct"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:enabled="false"
+                android:importantForAutofill="no"
+                android:inputType="text|number" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="16dp"
+            android:hint="@string/product_name"
+            app:layout_constraintTop_toBottomOf="@id/textInputId"
+            app:startIconDrawable="@drawable/cat">
+
+            <EditText
+                android:id="@+id/editTextNameProduct"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:importantForAutofill="no"
+                android:inputType="text" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputPrice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="16dp"
+            android:hint="@string/price_product"
+            app:layout_constraintTop_toBottomOf="@id/textInputName"
+            app:startIconDrawable="@drawable/price">
+
+            <EditText
+                android:id="@+id/editTextPriceProduct"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:importantForAutofill="no"
+                android:inputType="number" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <androidx.appcompat.widget.AppCompatSpinner
+            android:id="@+id/spinnerCategory"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textInputPrice" />
+
+        <LinearLayout
+            android:id="@+id/linear"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="16dp"
+            android:gravity="center"
+            android:orientation="vertical"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/spinnerCategory">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:padding="10dp">
+                <Button
+                    android:id="@+id/btnCancelProduct"
+                    android:layout_width="155dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/background_button"
+                    android:drawableEnd="@drawable/cancel_edit_product"
+                    android:text="Cancel"
+                    android:layout_marginEnd="20dp"
+                    android:textSize="20sp"
+                    app:backgroundTint="@null" />
+                <Button
+                    android:id="@+id/btnAddProduct"
+                    android:layout_width="155dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/background_button"
+                    android:drawableEnd="@drawable/add_product"
+                    android:text="@string/add"
+                    android:textSize="20sp"
+                    app:backgroundTint="@null" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <ImageButton
+            android:layout_width="40dp"
+            android:layout_height="50dp"
+            android:src="@drawable/baseline_arrow_back_24"
+            android:background="@null"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="5dp"
+            android:layout_marginStart="5dp"
+            android:id="@+id/backProduct"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</ScrollView>

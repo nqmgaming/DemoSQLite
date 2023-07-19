@@ -18,6 +18,8 @@ import com.nqmgaming.demosqliteapp.DTO.ProductDTO;
 
 import java.util.ArrayList;
 
+import io.github.cutelibs.cutedialog.CuteDialog;
+
 public class EditProductActivity extends AppCompatActivity {
 
     EditText editProductID, editProductName, editProductPrice;
@@ -129,17 +131,26 @@ public class EditProductActivity extends AppCompatActivity {
                 productDTO.setCat_id(category);
                 int result = productDAO.UpdateProduct(productDTO);
                 if (result > 0) {
-                    Toast.makeText(
-                                    EditProductActivity.this,
-                                    "Edit successful", Toast.LENGTH_SHORT)
+                    new CuteDialog.withAnimation(EditProductActivity.this)
+                            .setTitle("Add Category Successful")
+                            .setAnimation(R.raw.successfull)
+                            .setPositiveButtonText("OK", new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    Intent intent = new Intent(
+                                            EditProductActivity.this,
+                                            ProductActivity.class);
+                                    intent.putExtra("success", true);
+                                    startActivity(intent);
+                                    finish();
+
+                                }
+                            })
+                            .hideNegativeButton(true)
                             .show();
+
                     // Return to the product list screen and send a success message to reload the list
-                    Intent intent = new Intent(
-                            EditProductActivity.this,
-                            ProductActivity.class);
-                    intent.putExtra("success", true);
-                    startActivity(intent);
-                    finish();
+
                 } else {
                     Toast.makeText(
                                     EditProductActivity.this,

@@ -13,7 +13,7 @@ public class GithubActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_github);
         webView = findViewById(R.id.webView);
-        webView.getSettings().setJavaScriptEnabled(true);
+        webView.getSettings().setJavaScriptEnabled(false);
         webView.loadUrl("https://github.com/nqmgaming");
     }
     @Override
